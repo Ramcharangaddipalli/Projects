@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>CovidTracker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="..\CSS\style.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="..\JS\myscript.js"></script>
+</head>
+<body ng-app = "MyApp" ng-controller = "MyCtrl" >
+	   <div class="jumbotron py-3">
+		<img src="..\images\covid-19-banner.jpg"  style="width:100%;height:200px">
+		   <h1 class="text-center">{{msg}}</h1>
+		   <p>
+			The COVID-19 pandemic in India is part of the worldwide pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The first case of COVID-19 in India, which originated from China, was reported on 30 January 2020. India currently has the largest number of confirmed cases in Asia, and has the second-highest number of confirmed cases in the world after the United States, with more than 9 million reported cases of COVID-19 infection and more than 100 thousand deaths. By mid of 2020, India had approached in position of conducting highest number of daily tests in the world which subsequently translated into highest number of daily new cases in world and has sustained highest number of daily cases spike since then.
+		   </p>
+		   <!-- covid data -->
+			   
+		   <div class="row text-center">
+			   <div class="col-md-4">
+				   <div class="card bg-warning">
+					   <div class="card-body">
+						   <h3>Confirmed Cases</h3>
+						   <h3>{{covid_data.confirmed.value}}</h3>
+					   </div>
+				   </div>
+			   </div>
+			   <div class="col-md-4">
+				<div class="card bg-success">
+					<div class="card-body">
+						<h3>Recovered Cases</h3>
+						<h3>{{covid_data.recovered.value}}</h3>
+					</div>
+				</div>
+			   </div>
+			   <div class="col-md-4">
+				<div class="card bg-danger">
+					<div class="card-body">
+						<h3>Death Cases</h3>
+						<h3>{{covid_data.deaths.value}}</h3>
+					</div>
+				</div>
+			   </div>
+		   </div>
+
+		   <input type="text"
+			class="form-control mt-4" 
+			placeholder="Enter Country"
+			ng-model="c"
+			ng-change=get_c_data()
+			/>
+		   
+			
+		<div class = "container-fluid">
+			<h1 class="text-center mt-4 text-uppercase">{{c}} Co-Vid19 Data</h1>
+
+			<div class="row text-center mt-4" ng-if="c_data">
+				<div class="col-md-4">
+					<div class="card bg-warning">
+						<div class="card-body">
+							<h3>Confirmed Cases</h3>
+							<h3>{{c_data.confirmed.value}}</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+				 <div class="card bg-success">
+					 <div class="card-body">
+						 <h3>Recovered Cases</h3>
+						 <h3>{{c_data.recovered.value}}</h3>
+					 </div>
+				 </div>
+				</div>
+				<div class="col-md-4">
+				 <div class="card bg-danger">
+					 <div class="card-body">
+						 <h3>Death Cases</h3>
+						 <h3>{{c_data.deaths.value}}</h3>
+					 </div>
+				 </div>
+				</div>
+			</div>
+
+		</div>
+	   </div>
+</body>
+</html>
